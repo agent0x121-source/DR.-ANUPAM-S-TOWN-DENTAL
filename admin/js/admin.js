@@ -1666,15 +1666,26 @@
                         <h4 style="margin: 16px 0 8px 0; color:var(--brand-teal);">Weekly OPD Consultation Hours (Mon - Sat)</h4>
                         <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:12px; background:var(--bg-surface); padding:16px; border-radius:var(--radius-md);">
                             ${['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'].map(function (day, idx) {
-                                var h = (clinic.hours && clinic.hours[idx]) || { open: '10:00', close: '23:00', closed: false };
+                                var h = (clinic.hours && clinic.hours[idx]) || { open: '10:30', close: '21:00', closed: false };
+                                var hb = h.brk || {};
                                 return `
                                     <div style="background:var(--bg-card); padding:10px; border-radius:var(--radius-sm); border:1px solid var(--border-subtle);">
                                         <div style="font-weight:700; font-size:12px; margin-bottom:6px;">${day}</div>
                                         <div style="display:flex; gap:6px; align-items:center;">
                                             <input type="time" id="hour-open-${idx}" value="${h.open || '10:00'}" style="padding:4px; font-size:11px; background:var(--bg-input); border:1px solid var(--border-subtle); color:#fff; border-radius:4px;">
                                             <span>to</span>
-                                            <input type="time" id="hour-close-${idx}" value="${h.close || '23:00'}" style="padding:4px; font-size:11px; background:var(--bg-input); border:1px solid var(--border-subtle); color:#fff; border-radius:4px;">
+                                            <input type="time" id="hour-close-${idx}" value="${h.close || '21:00'}" style="padding:4px; font-size:11px; background:var(--bg-input); border:1px solid var(--border-subtle); color:#fff; border-radius:4px;">
                                         </div>
+                                        <div style="display:flex; gap:6px; align-items:center; margin-top:6px;">
+                                            <span style="font-size:10px; opacity:.7; min-width:36px;">Break</span>
+                                            <input type="time" id="hour-brk-start-${idx}" value="${hb.start || ''}" style="padding:4px; font-size:11px; background:var(--bg-input); border:1px solid var(--border-subtle); color:#fff; border-radius:4px;">
+                                            <span>to</span>
+                                            <input type="time" id="hour-brk-end-${idx}" value="${hb.end || ''}" style="padding:4px; font-size:11px; background:var(--bg-input); border:1px solid var(--border-subtle); color:#fff; border-radius:4px;">
+                                        </div>
+                                        <label style="display:flex; gap:6px; align-items:center; margin-top:6px; font-size:11px; cursor:pointer;">
+                                            <input type="checkbox" id="hour-closed-${idx}" ${h.closed ? 'checked' : ''}>
+                                            Closed all day
+                                        </label>
                                     </div>
                                 `;
                             }).join('')}
@@ -1697,13 +1708,29 @@
 
             var self = this;
             document.getElementById('btn-save-contact').addEventListener('click', function () {
+                var DAY_NAMES = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                function pretty(t) {
+                    var p = (t || '').split(':');
+                    if (p.length < 2) return t || '';
+                    var hh = parseInt(p[0], 10), mm = p[1];
+                    var suf = hh >= 12 ? 'PM' : 'AM';
+                    var h12 = hh % 12; if (h12 === 0) h12 = 12;
+                    return h12 + ':' + mm + ' ' + suf;
+                }
                 var hours = {};
                 for (var i = 0; i <= 6; i++) {
-                    hours[i] = {
-                        open: document.getElementById('hour-open-' + i).value,
-                        close: document.getElementById('hour-close-' + i).value,
-                        closed: false
-                    };
+                    var isClosed = document.getElementById('hour-closed-' + i).checked;
+                    var oV = document.getElementById('hour-open-' + i).value;
+                    var cV = document.getElementById('hour-close-' + i).value;
+                    var bS = document.getElementById('hour-brk-start-' + i).value;
+                    var bE = document.getElementById('hour-brk-end-' + i).value;
+                    var brk = (bS && bE) ? { start: bS, end: bE } : null;
+                    var label = isClosed
+                        ? DAY_NAMES[i] + ': Closed'
+                        : DAY_NAMES[i] + ': ' + (brk
+                            ? pretty(oV) + ' - ' + pretty(brk.start) + ', ' + pretty(brk.end) + ' - ' + pretty(cV)
+                            : pretty(oV) + ' - ' + pretty(cV));
+                    hours[i] = { open: oV, close: cV, brk: brk, closed: isClosed, label: label };
                 }
 
                 var patch = {
@@ -1714,10 +1741,10 @@
                     mapsUrl: document.getElementById('cnt-maps-url').value,
                     address: document.getElementById('cnt-address').value,
                     hours: hours,
-                    transit: {
+                    transit: Object.assign({}, clinic.transit, {
                         metro: document.getElementById('cnt-metro').value,
                         bus: document.getElementById('cnt-bus').value
-                    }
+                    })
                 };
 
                 db.updateClinic(patch, self.currentUser);
