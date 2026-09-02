@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Dr. Patil’s Dental Care — Central Data Store & Management Database Engine
+   The Dental Solutions — Central Data Store & Management Database Engine
    --------------------------------------------------------------------------
    Unified source of truth for Clinic Info, Doctors, Services, Blogs,
    Reviews, Appointments, Patients, Staff & Roles, WhatsApp Automation,
@@ -8,40 +8,40 @@
 (function (global) {
     'use strict';
 
-    var STORAGE_KEY = 'drpatils_db_v1';
+    var STORAGE_KEY = 'tds_db_v1';
     var SESSION_KEY = 'lumora_active_session';
     var PATIENT_SESSION_KEY = 'lumora_patient_session';
 
     /* Initial Seed Data based on real website content */
     var INITIAL_DATA = {
         clinic: {
-            name: 'Dr. Patil’s Dental Care',
-            brand: 'Dr. Patil’s Dental Care',
-            tagline: 'Modern, gentle dentistry in Pimpri-Chinchwad, Pune.',
-            address: 'Office No. 6, B-Wing, First Floor, Above Punjab National Bank, Kamla Cross Road, Opp. PCMC Building, Pimpri Colony, Pune 411018',
-            shortAddress: 'Pimpri Colony, Pimpri-Chinchwad, Pune',
-            phone: '+91 91460 29424',
-            phoneSecondary: '+91 91460 29424',
-            phoneE164: '919146029424',
-            whatsapp: '+91 91460 29424',
-            email: 'hello@drpatilsdentalcare.com',
-            emergencyEmail: 'care@drpatilsdentalcare.com',
-            mapsUrl: 'https://maps.google.com/?cid=1481562831782819169',
-            mapsEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.629399066601!2d77.291773!3d28.550849!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce4497e296e6d%3A0xaf189c4eb0ae2660!2sPimpri%20Colony%2C%20Pimpri-Chinchwad%2C%20Pune%2C%20Maharashtra%20411018!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin',
+            name: 'The Dental Solutions',
+            brand: 'The Dental Solutions',
+            tagline: 'Modern, gentle dentistry in Shivajinagar, Pune.',
+            address: '3rd Floor, Grand Helios Building, 303, Off FC Rd, above Axis Bank, opp. Hotel Ambassador, Model Colony, Shivajinagar, Pune 411016',
+            shortAddress: 'Model Colony, Shivajinagar, Pune',
+            phone: '+91 97654 07679',
+            phoneSecondary: '+91 97654 07679',
+            phoneE164: '919765407679',
+            whatsapp: '+91 97654 07679',
+            email: 'hello@drkaustubhpatilpune.com',
+            emergencyEmail: 'care@drkaustubhpatilpune.com',
+            mapsUrl: 'https://maps.google.com/?cid=4187806642178671438',
+            mapsEmbed: 'https://maps.google.com/maps?q=Dr.%20Kaustubh%20Patil%20-%20The%20Dental%20Solutions%20Dental%20Clinic%2C%20Model%20Colony%2C%20Pune&output=embed',
             hours: {
-                0: { open: '10:30', close: '21:00', brk: null, label: 'Sunday: Closed', closed: true },
-                1: { open: '10:30', close: '21:00', brk: { start: '14:30', end: '17:00' }, label: 'Monday: 10:30 AM - 2:30 PM, 5:00 PM - 9:00 PM', closed: false },
-                2: { open: '10:30', close: '21:00', brk: { start: '14:30', end: '17:00' }, label: 'Tuesday: 10:30 AM - 2:30 PM, 5:00 PM - 9:00 PM', closed: false },
-                3: { open: '10:30', close: '21:00', brk: { start: '14:30', end: '17:00' }, label: 'Wednesday: 10:30 AM - 2:30 PM, 5:00 PM - 9:00 PM', closed: false },
-                4: { open: '10:30', close: '21:00', brk: { start: '14:30', end: '17:00' }, label: 'Thursday: 10:30 AM - 2:30 PM, 5:00 PM - 9:00 PM', closed: false },
-                5: { open: '10:30', close: '21:00', brk: { start: '14:30', end: '17:00' }, label: 'Friday: 10:30 AM - 2:30 PM, 5:00 PM - 9:00 PM', closed: false },
-                6: { open: '10:30', close: '21:00', brk: { start: '14:30', end: '17:00' }, label: 'Saturday: 10:30 AM - 2:30 PM, 5:00 PM - 9:00 PM', closed: false }
+                0: { open: '09:00', close: '18:00', brk: null, label: 'Sunday: Closed', closed: true },
+                1: { open: '09:00', close: '18:00', brk: null, label: 'Monday: 9:00 AM - 6:00 PM', closed: false },
+                2: { open: '09:00', close: '18:00', brk: null, label: 'Tuesday: 9:00 AM - 6:00 PM', closed: false },
+                3: { open: '09:00', close: '18:00', brk: null, label: 'Wednesday: 9:00 AM - 6:00 PM', closed: false },
+                4: { open: '09:00', close: '18:00', brk: null, label: 'Thursday: 9:00 AM - 6:00 PM', closed: false },
+                5: { open: '09:00', close: '18:00', brk: null, label: 'Friday: 9:00 AM - 6:00 PM', closed: false },
+                6: { open: '09:00', close: '18:00', brk: null, label: 'Saturday: 9:00 AM - 6:00 PM', closed: false }
             },
             transit: {
-                metro: 'PCMC Metro Station (Purple Line) — 3 mins by auto',
-                bus: 'PCMC Bus Stop — 2 mins walk',
-                landmark: 'Opposite PCMC Building, above Punjab National Bank',
-                parking: 'Complimentary on-site patient parking available'
+                metro: '',
+                bus: '',
+                landmark: 'Off FC Road — above Axis Bank, opposite Hotel Ambassador',
+                parking: ''
             },
             bookingWindowDays: 60,
             minNoticeMinutes: 90,
@@ -51,41 +51,41 @@
 
         doctors: [
             {
-                id: 'vishwas-patil',
-                name: 'Dr. Vishwas Patil',
-                email: 'dr.vishwas@drpatilsdentalcare.com',
-                specialization: 'Senior Dentist & Implantologist',
-                qualification: 'BDS, Maharashtra University of Health Sciences',
-                experience: '10+ years experience',
-                department: 'General & Restorative Dentistry',
+                id: 'kaustubh-patil',
+                name: 'Dr. Kaustubh Patil',
+                email: 'dr.kaustubh@drkaustubhpatilpune.com',
+                specialization: 'Periodontist, Implantologist & Dental Surgeon',
+                qualification: 'MDS (Periodontics), BDS',
+                experience: '16+ years experience',
+                department: 'Periodontics, Implants & General Dentistry',
                 image: 'assets/img/gen_team-image-5.jpg',
-                phone: '+91 91460 29424',
-                bio: 'Specialist in restorative dentistry, dental implants, pain management, cavities, and smile rehabilitations. Known for exceptional precision and gentle touch.',
+                phone: '+91 97654 07679',
+                bio: 'Periodontist and oral implantologist leading The Dental Solutions. Focused on dental implants, root canal treatment, gum care and full-mouth rehabilitation, with a calm, clearly explained approach to every treatment.',
                 languages: ['English', 'Hindi', 'Marathi'],
                 services: ['general-consultation', 'preventive-dentistry', 'cosmetic-dentistry', 'restorative-treatments', 'follow-up'],
                 featured: true,
                 active: true,
                 loginEnabled: true,
                 schedule: {
-                    0: { open: '10:30', close: '21:00', closed: true },
-                    1: { open: '10:30', close: '21:00', brk: { start: '14:30', end: '17:00' } },
-                    2: { open: '10:30', close: '21:00', brk: { start: '14:30', end: '17:00' } },
-                    3: { open: '10:30', close: '21:00', brk: { start: '14:30', end: '17:00' } },
-                    4: { open: '10:30', close: '21:00', brk: { start: '14:30', end: '17:00' } },
-                    5: { open: '10:30', close: '21:00', brk: { start: '14:30', end: '17:00' } },
-                    6: { open: '10:30', close: '21:00', brk: { start: '14:30', end: '17:00' } }
+                    0: { open: '09:00', close: '18:00', closed: true },
+                    1: { open: '09:00', close: '18:00', brk: null },
+                    2: { open: '09:00', close: '18:00', brk: null },
+                    3: { open: '09:00', close: '18:00', brk: null },
+                    4: { open: '09:00', close: '18:00', brk: null },
+                    5: { open: '09:00', close: '18:00', brk: null },
+                    6: { open: '09:00', close: '18:00', brk: null }
                 }
             },
             {
                 id: 'sidra',
                 name: 'Associate Dentist',
-                email: 'associate@drpatilsdentalcare.com',
+                email: 'associate@drkaustubhpatilpune.com',
                 specialization: 'Orthodontics & Aligners',
                 qualification: 'BDS, MDS Orthodontics',
                 experience: '6 years experience',
                 department: 'Preventive & Cosmetic Dentistry',
                 image: 'assets/img/gen_team-image-6.jpg',
-                phone: '+91 91460 29424',
+                phone: '+91 97654 07679',
                 bio: 'Gentle preventive and cosmetic care, aligners, braces, smile makeovers, with a dedicated focus on first-time and anxious patients.',
                 languages: ['English', 'Hindi', 'Marathi'],
                 services: ['general-consultation', 'preventive-dentistry', 'cosmetic-dentistry', 'orthodontics', 'follow-up'],
@@ -93,25 +93,25 @@
                 active: true,
                 loginEnabled: true,
                 schedule: {
-                    0: { open: '10:30', close: '21:00', closed: true },
-                    1: { open: '10:30', close: '21:00', brk: { start: '14:30', end: '17:00' } },
-                    2: { open: '10:30', close: '21:00', brk: { start: '14:30', end: '17:00' } },
-                    3: { open: '10:30', close: '21:00', brk: { start: '14:30', end: '17:00' } },
-                    4: { open: '10:30', close: '21:00', brk: { start: '14:30', end: '17:00' } },
-                    5: { open: '10:30', close: '21:00', brk: { start: '14:30', end: '17:00' } },
-                    6: { open: '10:30', close: '21:00', brk: { start: '14:30', end: '17:00' } }
+                    0: { open: '09:00', close: '18:00', closed: true },
+                    1: { open: '09:00', close: '18:00', brk: null },
+                    2: { open: '09:00', close: '18:00', brk: null },
+                    3: { open: '09:00', close: '18:00', brk: null },
+                    4: { open: '09:00', close: '18:00', brk: null },
+                    5: { open: '09:00', close: '18:00', brk: null },
+                    6: { open: '09:00', close: '18:00', brk: null }
                 }
             },
             {
                 id: 'taniya',
                 name: 'Consultant Dentist',
-                email: 'consultant@drpatilsdentalcare.com',
+                email: 'consultant@drkaustubhpatilpune.com',
                 specialization: 'Root Canal & Restorative Care',
-                qualification: 'BDS, Maharashtra University of Health Sciences',
+                qualification: 'BDS',
                 experience: '5 years experience',
                 department: 'General Dentistry',
                 image: 'assets/img/gen_team-image-1.jpg',
-                phone: '+91 91460 29424',
+                phone: '+91 97654 07679',
                 bio: 'Routine check-ups, cleanings, root canals and aesthetic fillings, with a calm, unhurried chairside manner.',
                 languages: ['English', 'Hindi', 'Marathi'],
                 services: ['general-consultation', 'preventive-dentistry', 'restorative-treatments', 'follow-up'],
@@ -119,25 +119,25 @@
                 active: true,
                 loginEnabled: true,
                 schedule: {
-                    0: { open: '10:30', close: '21:00', closed: true },
-                    1: { open: '10:30', close: '21:00', brk: { start: '14:30', end: '17:00' } },
-                    2: { open: '10:30', close: '21:00', brk: { start: '14:30', end: '17:00' } },
-                    3: { open: '10:30', close: '21:00', brk: { start: '14:30', end: '17:00' } },
-                    4: { open: '10:30', close: '21:00', brk: { start: '14:30', end: '17:00' } },
-                    5: { open: '10:30', close: '21:00', brk: { start: '14:30', end: '17:00' } },
-                    6: { open: '10:30', close: '21:00', brk: { start: '14:30', end: '17:00' } }
+                    0: { open: '09:00', close: '18:00', closed: true },
+                    1: { open: '09:00', close: '18:00', brk: null },
+                    2: { open: '09:00', close: '18:00', brk: null },
+                    3: { open: '09:00', close: '18:00', brk: null },
+                    4: { open: '09:00', close: '18:00', brk: null },
+                    5: { open: '09:00', close: '18:00', brk: null },
+                    6: { open: '09:00', close: '18:00', brk: null }
                 }
             },
             {
                 id: 'parul',
                 name: 'Dental Hygienist',
-                email: 'hygienist@drpatilsdentalcare.com',
+                email: 'hygienist@drkaustubhpatilpune.com',
                 specialization: 'Preventive Care & Gum Health',
                 qualification: 'BDS, Dental Hygiene',
                 experience: '4 years experience',
                 department: 'Preventive Dentistry',
                 image: 'assets/img/gen_team-image-3.jpg',
-                phone: '+91 91460 29424',
+                phone: '+91 97654 07679',
                 bio: 'Scaling, deep polishing, gum therapy and personalized advice on maintaining dental health for life.',
                 languages: ['English', 'Hindi', 'Marathi'],
                 services: ['general-consultation', 'preventive-dentistry', 'follow-up'],
@@ -145,13 +145,13 @@
                 active: true,
                 loginEnabled: true,
                 schedule: {
-                    0: { open: '10:30', close: '21:00', closed: true },
-                    1: { open: '10:30', close: '21:00', brk: { start: '14:30', end: '17:00' } },
-                    2: { open: '10:30', close: '21:00', brk: { start: '14:30', end: '17:00' } },
-                    3: { open: '10:30', close: '21:00', brk: { start: '14:30', end: '17:00' } },
-                    4: { open: '10:30', close: '21:00', brk: { start: '14:30', end: '17:00' } },
-                    5: { open: '10:30', close: '21:00', brk: { start: '14:30', end: '17:00' } },
-                    6: { open: '10:30', close: '21:00', brk: { start: '14:30', end: '17:00' } }
+                    0: { open: '09:00', close: '18:00', closed: true },
+                    1: { open: '09:00', close: '18:00', brk: null },
+                    2: { open: '09:00', close: '18:00', brk: null },
+                    3: { open: '09:00', close: '18:00', brk: null },
+                    4: { open: '09:00', close: '18:00', brk: null },
+                    5: { open: '09:00', close: '18:00', brk: null },
+                    6: { open: '09:00', close: '18:00', brk: null }
                 }
             }
         ],
@@ -161,7 +161,7 @@
                 id: 'preventive-dentistry',
                 name: 'Preventive Dentistry',
                 tagline: 'Preserve your natural smile with proactive care',
-                description: 'At Dr. Patil’s Dental Care, we combine expertise, compassion, and modern technology for gentle cleanings, scaling, fluoride varnish and oral exams.',
+                description: 'At The Dental Solutions, we combine expertise, compassion, and modern technology for gentle cleanings, scaling, fluoride varnish and oral exams.',
                 duration: 30,
                 price: 800,
                 modes: ['in-person'],
@@ -169,7 +169,7 @@
                 category: 'Routine Care',
                 featured: true,
                 active: true,
-                doctors: ['vishwas-patil', 'sidra', 'taniya', 'parul']
+                doctors: ['kaustubh-patil', 'sidra', 'taniya', 'parul']
             },
             {
                 id: 'restorative-treatments',
@@ -183,7 +183,7 @@
                 category: 'Restoration',
                 featured: true,
                 active: true,
-                doctors: ['vishwas-patil', 'taniya']
+                doctors: ['kaustubh-patil', 'taniya']
             },
             {
                 id: 'cosmetic-dentistry',
@@ -197,7 +197,7 @@
                 category: 'Aesthetics',
                 featured: true,
                 active: true,
-                doctors: ['vishwas-patil', 'sidra']
+                doctors: ['kaustubh-patil', 'sidra']
             },
             {
                 id: 'orthodontics',
@@ -225,7 +225,7 @@
                 category: 'Consultation',
                 featured: true,
                 active: true,
-                doctors: ['vishwas-patil', 'sidra', 'taniya', 'parul']
+                doctors: ['kaustubh-patil', 'sidra', 'taniya', 'parul']
             },
             {
                 id: 'follow-up',
@@ -239,7 +239,7 @@
                 category: 'Review',
                 featured: false,
                 active: true,
-                doctors: ['vishwas-patil', 'sidra', 'taniya', 'parul']
+                doctors: ['kaustubh-patil', 'sidra', 'taniya', 'parul']
             }
         ],
 
@@ -249,7 +249,7 @@
                 title: 'The ultimate guide to brushing: are you doing it right?',
                 slug: 'the-ultimate-guide-to-brushing',
                 category: 'Preventive Care',
-                author: 'Dr. Vishwas Patil',
+                author: 'Dr. Kaustubh Patil',
                 date: 'April 30, 2026',
                 summary: 'Discover how simple brushing improvements can dramatically transform your dental longevity, prevent decay, and preserve your natural enamel.',
                 content: '<p>Most people brush twice a day, but few realize that technique matters just as much as frequency. Holding your toothbrush at a 45-degree angle to the gumline and using gentle, circular motions ensures plaque removal without irritating tender gingival tissues.</p><p>Always use a soft-bristled brush and replace it every 3 months. Electric toothbrushes with pressure sensors are also highly recommended for gentle, consistent cleaning.</p>',
@@ -304,9 +304,9 @@
                 author: 'Kristin Watson',
                 designation: 'Business Owner',
                 rating: 5,
-                comment: '“I’ve always been nervous about visiting the dentist, but Dr. Patil’s Dental Care changed everything. The staff is warm, and the care is exceptional. I finally enjoy smiling again.”',
+                comment: '“I’ve always been nervous about visiting the dentist, but The Dental Solutions changed everything. The staff is warm, and the care is exceptional. I finally enjoy smiling again.”',
                 avatar: 'assets/img/gen_testimonial-author-1.jpg',
-                doctorId: 'vishwas-patil',
+                doctorId: 'kaustubh-patil',
                 serviceId: 'cosmetic-dentistry',
                 date: '2026-08-14',
                 featured: true,
@@ -343,9 +343,9 @@
                 author: 'Ayesha Siddiqui',
                 designation: 'Architect',
                 rating: 5,
-                comment: '“Very clean clinic with modern equipment. Dr. Vishwas Patil explained the root canal step by step and there was virtually zero pain. Outstanding experience in Pimpri-Chinchwad.”',
+                comment: '“Very clean clinic with modern equipment. Dr. Kaustubh Patil explained the root canal step by step and there was virtually zero pain. Outstanding experience in Shivajinagar.”',
                 avatar: 'assets/img/gen_testimonial-author-1.jpg',
-                doctorId: 'vishwas-patil',
+                doctorId: 'kaustubh-patil',
                 serviceId: 'restorative-treatments',
                 date: '2026-08-30',
                 featured: true,
@@ -362,7 +362,7 @@
                 age: 34,
                 gender: 'Male',
                 bloodGroup: 'B+',
-                address: 'Wakad, Pimpri-Chinchwad, Pune',
+                address: 'Wakad, Shivajinagar, Pune',
                 medicalHistory: 'Mild sensitivity on lower molars. No known drug allergies.',
                 lastVisit: '2026-08-25',
                 upcomingAppointment: '2026-09-03 11:30',
@@ -449,7 +449,7 @@
                 patientPhone: '+91 98112 34567',
                 patientEmail: 'sameer.k@example.com',
                 patientAge: 34,
-                doctorId: 'vishwas-patil',
+                doctorId: 'kaustubh-patil',
                 serviceId: 'preventive-dentistry',
                 date: '2026-09-03',
                 time: '11:30 AM',
@@ -514,7 +514,7 @@
                 patientPhone: '+91 99581 23456',
                 patientEmail: 'rohit.s@example.com',
                 patientAge: 42,
-                doctorId: 'vishwas-patil',
+                doctorId: 'kaustubh-patil',
                 serviceId: 'restorative-treatments',
                 date: '2026-08-18',
                 time: '05:30 PM',
@@ -527,7 +527,7 @@
                 history: [
                     { time: '2026-08-14T11:20:00Z', action: 'Booked online', user: 'Patient' },
                     { time: '2026-08-14T12:00:00Z', action: 'Confirmed', user: 'Admin' },
-                    { time: '2026-08-18T18:15:00Z', action: 'Marked Attended by Dr. Vishwas Patil', user: 'Dr. Vishwas Patil' }
+                    { time: '2026-08-18T18:15:00Z', action: 'Marked Attended by Dr. Kaustubh Patil', user: 'Dr. Kaustubh Patil' }
                 ]
             },
             {
@@ -559,11 +559,11 @@
             {
                 id: 'usr-admin-1',
                 name: 'Clinic Administrator',
-                email: 'admin@drpatilsdentalcare.com',
+                email: 'admin@drkaustubhpatilpune.com',
                 role: 'ADMIN',
-                phone: '+91 91460 29424',
+                phone: '+91 97654 07679',
                 active: true,
-                avatar: 'assets/img/clinic-icon.svg',
+                avatar: '/assets/img/clinic-icon.svg',
                 permissions: [
                     'dashboard', 'appointments', 'calendar', 'patients', 'doctors',
                     'services', 'blogs', 'reviews', 'analytics', 'reports',
@@ -574,9 +574,9 @@
             {
                 id: 'usr-staff-1',
                 name: 'Aaliya Reception Desk',
-                email: 'staff@drpatilsdentalcare.com',
+                email: 'staff@drkaustubhpatilpune.com',
                 role: 'STAFF',
-                phone: '+91 91460 29424',
+                phone: '+91 97654 07679',
                 active: true,
                 avatar: 'assets/img/gen_team-image-1.jpg',
                 permissions: [
@@ -588,18 +588,18 @@
 
         /* Auth credentials dictionary (hash simulated in client layer) */
         credentials: {
-            'admin@drpatilsdentalcare.com': { password: 'admin123', role: 'ADMIN', refId: 'usr-admin-1' },
-            'staff@drpatilsdentalcare.com': { password: 'staff123', role: 'STAFF', refId: 'usr-staff-1' },
-            'dr.vishwas@drpatilsdentalcare.com': { password: 'doctor123', role: 'DOCTOR', refId: 'vishwas-patil' },
-            'associate@drpatilsdentalcare.com': { password: 'doctor123', role: 'DOCTOR', refId: 'sidra' },
-            'consultant@drpatilsdentalcare.com': { password: 'doctor123', role: 'DOCTOR', refId: 'taniya' },
-            'hygienist@drpatilsdentalcare.com': { password: 'doctor123', role: 'DOCTOR', refId: 'parul' },
-            'admin@drpatilsdentalcare.com': { password: 'admin123', role: 'ADMIN', refId: 'usr-admin-1' },
-            'staff@drpatilsdentalcare.com': { password: 'staff123', role: 'STAFF', refId: 'usr-staff-1' },
-            'dr.vishwas@drpatilsdentalcare.com': { password: 'doctor123', role: 'DOCTOR', refId: 'vishwas-patil' },
-            'associate@drpatilsdentalcare.com': { password: 'doctor123', role: 'DOCTOR', refId: 'sidra' },
-            'consultant@drpatilsdentalcare.com': { password: 'doctor123', role: 'DOCTOR', refId: 'taniya' },
-            'hygienist@drpatilsdentalcare.com': { password: 'doctor123', role: 'DOCTOR', refId: 'parul' },
+            'admin@drkaustubhpatilpune.com': { password: 'admin123', role: 'ADMIN', refId: 'usr-admin-1' },
+            'staff@drkaustubhpatilpune.com': { password: 'staff123', role: 'STAFF', refId: 'usr-staff-1' },
+            'dr.kaustubh@drkaustubhpatilpune.com': { password: 'doctor123', role: 'DOCTOR', refId: 'kaustubh-patil' },
+            'associate@drkaustubhpatilpune.com': { password: 'doctor123', role: 'DOCTOR', refId: 'sidra' },
+            'consultant@drkaustubhpatilpune.com': { password: 'doctor123', role: 'DOCTOR', refId: 'taniya' },
+            'hygienist@drkaustubhpatilpune.com': { password: 'doctor123', role: 'DOCTOR', refId: 'parul' },
+            'admin@drkaustubhpatilpune.com': { password: 'admin123', role: 'ADMIN', refId: 'usr-admin-1' },
+            'staff@drkaustubhpatilpune.com': { password: 'staff123', role: 'STAFF', refId: 'usr-staff-1' },
+            'dr.kaustubh@drkaustubhpatilpune.com': { password: 'doctor123', role: 'DOCTOR', refId: 'kaustubh-patil' },
+            'associate@drkaustubhpatilpune.com': { password: 'doctor123', role: 'DOCTOR', refId: 'sidra' },
+            'consultant@drkaustubhpatilpune.com': { password: 'doctor123', role: 'DOCTOR', refId: 'taniya' },
+            'hygienist@drkaustubhpatilpune.com': { password: 'doctor123', role: 'DOCTOR', refId: 'parul' },
             'patient@example.com': { password: 'patient123', role: 'PATIENT', refId: 'pat-1001' }
         },
 
@@ -644,12 +644,12 @@
                 role: 'SYSTEM',
                 action: 'INITIALIZED',
                 entity: 'Database',
-                details: 'Dr. Patil’s Dental Care management core initialized.'
+                details: 'The Dental Solutions management core initialized.'
             }
         ],
 
         settings: {
-            clinicName: 'Dr. Patil’s Dental Care',
+            clinicName: 'The Dental Solutions',
             tagline: 'Modern, Gentle Dentistry',
             taxPercentage: 0,
             allowOnlineCancellation: true,
@@ -1303,11 +1303,11 @@
         var svcName = svc ? svc.name : (appt.serviceName || 'Dental Consultation');
         var apptDate = appt.date || '';
         var apptTime = appt.time || '';
-        var clinicName = clinic.name || 'Dr. Patil’s Dental Care';
-        var clinicAddr = clinic.address || 'Office No. 6, B-Wing, First Floor, Above Punjab National Bank, Kamla Cross Road, Opp. PCMC Building, Pimpri Colony, Pune 411018';
-        var clinicPh = clinic.phone || '+91 91460 29424';
-        var emergPh = clinic.phone || '+91 91460 29424';
-        var mapsLink = clinic.mapsUrl || 'https://maps.google.com/?cid=1481562831782819169';
+        var clinicName = clinic.name || 'The Dental Solutions';
+        var clinicAddr = clinic.address || '3rd Floor, Grand Helios Building, 303, Off FC Rd, above Axis Bank, opp. Hotel Ambassador, Model Colony, Shivajinagar, Pune 411016';
+        var clinicPh = clinic.phone || '+91 97654 07679';
+        var emergPh = clinic.phone || '+91 97654 07679';
+        var mapsLink = clinic.mapsUrl || 'https://maps.google.com/?cid=4187806642178671438';
 
         // Support both camelCase and snake_case tags
         msg = msg.replace(/{{patientName}}/g, patName).replace(/{{patient_name}}/g, patName);

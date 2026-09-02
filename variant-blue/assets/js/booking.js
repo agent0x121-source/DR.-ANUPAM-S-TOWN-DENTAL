@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Dr. Patil’s Dental Care — Appointment booking flow
+   The Dental Solutions — Appointment booking flow
    --------------------------------------------------------------------------
    Component map (each is a function returning a DOM node):
      BookingFlow          state machine + step rendering
@@ -207,7 +207,7 @@
                 text: 'Choose the dentist you would like to see. Pick a service, a date and a time that suits you — it takes less than a minute, and our team confirms every booking personally.'
             }),
             el('div', { class: 'bk-intro__meta' }, [
-                el('span', {}, [icon(ICONS.clock), el('span', { text: 'Mon–Sat, 10:30–14:30 & 17:00–21:00' })]),
+                el('span', {}, [icon(ICONS.clock), el('span', { text: 'Mon–Sat, 9:00–18:00' })]),
                 el('span', {}, [icon(ICONS.pin), el('span', { text: CLINIC.shortAddress })])
             ])
         ]));
@@ -718,7 +718,7 @@
 
         var phone = field({
             name: 'phone', label: 'Phone', required: true, type: 'tel',
-            autocomplete: 'tel', inputmode: 'tel', placeholder: '91460 29424',
+            autocomplete: 'tel', inputmode: 'tel', placeholder: '97654 07679',
             hint: 'We confirm your appointment on this number.'
         });
         /* Wrapping the input in the country-code row moves it out of the field
@@ -905,11 +905,11 @@
         return [
             'BEGIN:VCALENDAR',
             'VERSION:2.0',
-            'PRODID:-//Dr. Patil’s Dental Care//Appointment Booking//EN',
+            'PRODID:-//The Dental Solutions//Appointment Booking//EN',
             'CALSCALE:GREGORIAN',
             'METHOD:PUBLISH',
             'BEGIN:VEVENT',
-            'UID:' + state.result.reference + '@drpatilsdentalcare',
+            'UID:' + state.result.reference + '@drkaustubhpatilpune',
             'DTSTAMP:' + stamp(new Date()),
             'DTSTART:' + stamp(start),
             'DTEND:' + stamp(end),

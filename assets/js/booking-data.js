@@ -1,28 +1,28 @@
 /* ==========================================================================
-   Dr. Patil’s Dental Care — Booking data layer (Connected to LumoraDB)
+   The Dental Solutions — Booking data layer (Connected to LumoraDB)
    ========================================================================== */
 (function (global) {
     'use strict';
 
     /* Fallback default clinic info */
     var DEFAULT_CLINIC = {
-        name: 'Dr. Patil’s Dental Care',
-        tagline: 'Modern, gentle dentistry in Pimpri-Chinchwad, Pune.',
-        address: 'Office No. 6, B-Wing, First Floor, Above Punjab National Bank, Kamla Cross Road, Opp. PCMC Building, Pimpri Colony, Pune 411018',
-        shortAddress: 'Pimpri Colony, Pimpri-Chinchwad, Pune',
-        phone: '+91 91460 29424',
-        phoneE164: '919146029424',
-        email: 'hello@drpatilsdentalcare.com',
-        whatsapp: '+91 91460 29424',
-        mapsUrl: 'https://maps.google.com/?cid=1481562831782819169',
+        name: 'The Dental Solutions',
+        tagline: 'Modern, gentle dentistry in Shivajinagar, Pune.',
+        address: '3rd Floor, Grand Helios Building, 303, Off FC Rd, above Axis Bank, opp. Hotel Ambassador, Model Colony, Shivajinagar, Pune 411016',
+        shortAddress: 'Model Colony, Shivajinagar, Pune',
+        phone: '+91 97654 07679',
+        phoneE164: '919765407679',
+        email: 'hello@drkaustubhpatilpune.com',
+        whatsapp: '+91 97654 07679',
+        mapsUrl: 'https://maps.google.com/?cid=4187806642178671438',
         hours: {
-            0: { open: '10:00', close: '23:00' },
-            1: { open: '10:00', close: '23:00' },
-            2: { open: '10:00', close: '23:00' },
-            3: { open: '10:00', close: '23:00' },
-            4: { open: '10:00', close: '23:00' },
-            5: { open: '10:00', close: '23:00' },
-            6: { open: '10:00', close: '23:00' }
+            0: null,
+            1: { open: '09:00', close: '18:00', brk: null },
+            2: { open: '09:00', close: '18:00', brk: null },
+            3: { open: '09:00', close: '18:00', brk: null },
+            4: { open: '09:00', close: '18:00', brk: null },
+            5: { open: '09:00', close: '18:00', brk: null },
+            6: { open: '09:00', close: '18:00', brk: null }
         },
         bookingWindowDays: 60,
         minNoticeMinutes: 90,

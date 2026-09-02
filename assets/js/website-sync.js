@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Dr. Patil’s Dental Care — Website Synchronization & Dynamic Content Hydrator
+   The Dental Solutions — Website Synchronization & Dynamic Content Hydrator
    --------------------------------------------------------------------------
    Connects the public website presentation layer to the central LumoraDB
    while preserving 100% of the existing design, animations and layouts.
@@ -49,8 +49,8 @@
     function syncContactInfo(clinic) {
         if (!clinic) return;
 
-        var cleanPhoneE164 = (clinic.phoneE164 || clinic.phone || '919146029424').replace(/\D/g, '');
-        var cleanWa = (clinic.whatsapp || clinic.phoneE164 || clinic.phone || '919146029424').replace(/\D/g, '');
+        var cleanPhoneE164 = (clinic.phoneE164 || clinic.phone || '919765407679').replace(/\D/g, '');
+        var cleanWa = (clinic.whatsapp || clinic.phoneE164 || clinic.phone || '919765407679').replace(/\D/g, '');
 
         // 1. Phone numbers across links and texts
         var phoneLinks = document.querySelectorAll('a[href^="tel:"], .bk-top__call, a.our-info_item-link[href^="tel:"]');
@@ -60,12 +60,12 @@
             var childText = a.querySelector('span, div, .our-info_item-para');
             if (childText) {
                 if (childText.textContent.indexOf('Call :') !== -1 || childText.textContent.indexOf('Call:') !== -1) {
-                    childText.textContent = 'Call : ' + (clinic.phone || '+91 91460 29424');
+                    childText.textContent = 'Call : ' + (clinic.phone || '+91 97654 07679');
                 } else if (/\+?\d[\d\s-]{6,}/.test(childText.textContent)) {
-                    childText.textContent = clinic.phone || '+91 91460 29424';
+                    childText.textContent = clinic.phone || '+91 97654 07679';
                 }
             } else if (/\+?\d[\d\s-]{6,}/.test(a.textContent)) {
-                a.textContent = clinic.phone || '+91 91460 29424';
+                a.textContent = clinic.phone || '+91 97654 07679';
             }
         });
 
@@ -353,7 +353,7 @@
                 <div class="lumora-auth-box">
                     <div class="lumora-auth-header">
                         <div class="lumora-auth-badge">Patient Portal</div>
-                        <h2>Welcome to Dr. Patil’s Dental Care</h2>
+                        <h2>Welcome to The Dental Solutions</h2>
                         <p>Sign in to manage your appointments, view dental history, or book a consultation.</p>
                     </div>
 
@@ -525,7 +525,7 @@
                             ${(appt.status === 'Pending' || appt.status === 'Confirmed') ? `
                                 <div class="lumora-appt-actions">
                                     <button class="lumora-btn-sm lumora-btn-cancel" data-ref="${appt.reference}">Cancel Visit</button>
-                                    <a href="https://wa.me/919146029424?text=Hi%20DENTAL%20CLINICa,%20I%20would%20like%20to%20reschedule%20my%20appointment%20(Ref:%20${appt.reference})" target="_blank" class="lumora-btn-sm lumora-btn-resched">Request Reschedule</a>
+                                    <a href="https://wa.me/919765407679?text=Hi%20DENTAL%20CLINICa,%20I%20would%20like%20to%20reschedule%20my%20appointment%20(Ref:%20${appt.reference})" target="_blank" class="lumora-btn-sm lumora-btn-resched">Request Reschedule</a>
                                 </div>
                             ` : ''}
                         </div>

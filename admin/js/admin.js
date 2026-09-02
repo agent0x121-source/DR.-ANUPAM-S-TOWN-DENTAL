@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Dr. Patil’s Dental Care — Admin Ecosystem Core Application Controller
+   The Dental Solutions — Admin Ecosystem Core Application Controller
    --------------------------------------------------------------------------
    Modular SPA Architecture powering Admin, Doctor, and Staff Panels,
    with 25 interconnected systems, real-time sync, and role-based access.
@@ -1666,7 +1666,7 @@
                         <h4 style="margin: 16px 0 8px 0; color:var(--brand-teal);">Weekly OPD Consultation Hours (Mon - Sat)</h4>
                         <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:12px; background:var(--bg-surface); padding:16px; border-radius:var(--radius-md);">
                             ${['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'].map(function (day, idx) {
-                                var h = (clinic.hours && clinic.hours[idx]) || { open: '10:30', close: '21:00', closed: false };
+                                var h = (clinic.hours && clinic.hours[idx]) || { open: '09:00', close: '18:00', closed: false };
                                 var hb = h.brk || {};
                                 return `
                                     <div style="background:var(--bg-card); padding:10px; border-radius:var(--radius-sm); border:1px solid var(--border-subtle);">
@@ -1674,7 +1674,7 @@
                                         <div style="display:flex; gap:6px; align-items:center;">
                                             <input type="time" id="hour-open-${idx}" value="${h.open || '10:00'}" style="padding:4px; font-size:11px; background:var(--bg-input); border:1px solid var(--border-subtle); color:#fff; border-radius:4px;">
                                             <span>to</span>
-                                            <input type="time" id="hour-close-${idx}" value="${h.close || '21:00'}" style="padding:4px; font-size:11px; background:var(--bg-input); border:1px solid var(--border-subtle); color:#fff; border-radius:4px;">
+                                            <input type="time" id="hour-close-${idx}" value="${h.close || '18:00'}" style="padding:4px; font-size:11px; background:var(--bg-input); border:1px solid var(--border-subtle); color:#fff; border-radius:4px;">
                                         </div>
                                         <div style="display:flex; gap:6px; align-items:center; margin-top:6px;">
                                             <span style="font-size:10px; opacity:.7; min-width:36px;">Break</span>
@@ -1880,7 +1880,7 @@
                     reference: 'DC-SAMPLE',
                     patientName: 'Sameer Kulkarni',
                     patientPhone: '+91 98111 22334',
-                    doctorId: 'vishwas-patil',
+                    doctorId: 'kaustubh-patil',
                     serviceId: 'preventive-dentistry',
                     date: '2026-09-15',
                     time: '11:30 AM'
@@ -1899,11 +1899,11 @@
                 var svcName = svc ? svc.name : (appt.serviceName || 'Dental Consultation');
                 var apptDate = appt.date || '';
                 var apptTime = appt.time || '';
-                var clinicName = c.name || 'Dr. Patil’s Dental Care';
-                var clinicAddr = c.address || 'Office No. 6, B-Wing, First Floor, Above Punjab National Bank, Kamla Cross Road, Opp. PCMC Building, Pimpri Colony, Pune 411018';
-                var clinicPh = c.phone || '+91 91460 29424';
-                var emergPh = c.phone || '+91 91460 29424';
-                var mapsLink = c.mapsUrl || 'https://maps.google.com/?cid=1481562831782819169';
+                var clinicName = c.name || 'The Dental Solutions';
+                var clinicAddr = c.address || '3rd Floor, Grand Helios Building, 303, Off FC Rd, above Axis Bank, opp. Hotel Ambassador, Model Colony, Shivajinagar, Pune 411016';
+                var clinicPh = c.phone || '+91 97654 07679';
+                var emergPh = c.phone || '+91 97654 07679';
+                var mapsLink = c.mapsUrl || 'https://maps.google.com/?cid=4187806642178671438';
 
                 // Replace variables (both camelCase and snake_case)
                 var compiled = rawTemplate
@@ -2000,7 +2000,7 @@
 
             // Open in WhatsApp Button
             document.getElementById('btn-open-preview-wa').addEventListener('click', function () {
-                var phone = activePatientPhone || '919146029424';
+                var phone = activePatientPhone || '919765407679';
                 var url = 'https://wa.me/' + phone + '?text=' + encodeURIComponent(lastCompiledRawText);
                 window.open(url, '_blank');
             });
@@ -2250,7 +2250,7 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label>Clinic Display Name</label>
-                                <input type="text" id="set-clinic-name" value="${settings.clinicName || 'Dr. Patil’s Dental Care'}">
+                                <input type="text" id="set-clinic-name" value="${settings.clinicName || 'The Dental Solutions'}">
                             </div>
                             <div class="form-group">
                                 <label>Tagline</label>
@@ -2689,8 +2689,8 @@
                 <div style="background:#fff; color:#111; padding:24px; border-radius:var(--radius-md); font-family:sans-serif;" id="printable-receipt">
                     <div style="display:flex; justify-content:space-between; border-bottom:2px solid #24a3b1; padding-bottom:12px; margin-bottom:16px;">
                         <div>
-                            <h2 style="margin:0; color:#011f23;">Dr. Patil’s Dental Care</h2>
-                            <p style="margin:2px 0 0 0; font-size:11px; color:#555;">Office No. 6, B-Wing, Kamla Cross Road, Pimpri Colony, Pune • +91 91460 29424</p>
+                            <h2 style="margin:0; color:#011f23;">The Dental Solutions</h2>
+                            <p style="margin:2px 0 0 0; font-size:11px; color:#555;">3rd Floor, Grand Helios Building, Off FC Rd, Model Colony, Pune • +91 97654 07679</p>
                         </div>
                         <div style="text-align:right;">
                             <h3 style="margin:0; color:#24a3b1;">RECEIPT</h3>
@@ -2724,7 +2724,7 @@
                         </tbody>
                     </table>
 
-                    <div style="text-align:center; font-size:11px; color:#888;">Thank you for trusting Dr. Patil’s Dental Care with your smile.</div>
+                    <div style="text-align:center; font-size:11px; color:#888;">Thank you for trusting The Dental Solutions with your smile.</div>
                 </div>
                 <div style="margin-top:16px; text-align:right;">
                     <button type="button" class="btn btn-primary" onclick="window.print()">Print Receipt</button>
@@ -3003,7 +3003,7 @@
                         </div>
                         <div class="form-group">
                             <label>Author</label>
-                            <input type="text" id="be-author" value="${blog.author || 'Dr. Vishwas Patil'}">
+                            <input type="text" id="be-author" value="${blog.author || 'Dr. Kaustubh Patil'}">
                         </div>
                     </div>
 
@@ -3288,7 +3288,7 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label>Phone / WhatsApp Number</label>
-                            <input type="text" id="prof-phone" value="${user.phone || '+91 91460 29424'}" />
+                            <input type="text" id="prof-phone" value="${user.phone || '+91 97654 07679'}" />
                         </div>
                         <div class="form-group">
                             <label>Avatar Photo URL / Path</label>

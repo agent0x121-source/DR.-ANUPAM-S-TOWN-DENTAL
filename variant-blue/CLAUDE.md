@@ -1,4 +1,4 @@
-# Dr. Patil’s Dental Care — project notes
+# The Dental Solutions — project notes
 
 A premium dental clinic website. **Origin:** a de-branded, rebuilt version of a Webflow HTML
 template (originally "Smilifye" by author "Flowfye"). Every Webflow/template trace has been
@@ -17,8 +17,8 @@ an original build.
 - `.bak/` — original Webflow exports, kept for reference.
 
 ## Brand
-- Name: **Dr. Patil’s Dental Care**. Accent teal `#24a3b1`; deep teal `#011f23` / `#022f34`. Font: Sora.
-- Email: `hello@drpatilsdentalcare.com` (placeholder). Phone in footer is template placeholder.
+- Name: **The Dental Solutions**. Accent teal `#24a3b1`; deep teal `#011f23` / `#022f34`. Font: Sora.
+- Email: `hello@drkaustubhpatilpune.com` (placeholder). Phone in footer is template placeholder.
 
 ## Wiring
 - Nav/footer links are local `.html` files. All "Book/Get Appointment" CTAs (×6) →

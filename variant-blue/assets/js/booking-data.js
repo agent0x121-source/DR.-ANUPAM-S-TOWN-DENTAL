@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Dr. Patil’s Dental Care — Booking data layer
+   The Dental Solutions — Booking data layer
    --------------------------------------------------------------------------
    All clinic, doctor, service and availability data lives here, fully
    separated from the UI. To add a doctor, a service, a new duration or a
@@ -15,24 +15,24 @@
 
     /* ---------------------------------------------------------------- clinic */
     var CLINIC = {
-        name: 'Dr. Patil’s Dental Care',
-        tagline: 'Modern, gentle dentistry in Pimpri-Chinchwad, Pune.',
-        address: 'Office No. 6, B-Wing, First Floor, Above Punjab National Bank, Kamla Cross Road, Opp. PCMC Building, Pimpri Colony, Pune 411018',
-        shortAddress: 'Pimpri Colony, Pimpri-Chinchwad, Pune',
-        phone: '+91 91460 29424',
-        phoneE164: '919146029424',
-        email: 'hello@drpatilsdentalcare.com',
-        mapsUrl: 'https://maps.google.com/?cid=1481562831782819169',
+        name: 'The Dental Solutions',
+        tagline: 'Modern, gentle dentistry in Shivajinagar, Pune.',
+        address: '3rd Floor, Grand Helios Building, 303, Off FC Rd, above Axis Bank, opp. Hotel Ambassador, Model Colony, Shivajinagar, Pune 411016',
+        shortAddress: 'Model Colony, Shivajinagar, Pune',
+        phone: '+91 97654 07679',
+        phoneE164: '919765407679',
+        email: 'hello@drkaustubhpatilpune.com',
+        mapsUrl: 'https://maps.google.com/?cid=4187806642178671438',
         /* Clinic opening hours, 24h. 0 = Sunday … 6 = Saturday.
            null means closed that day. */
         hours: {
             0: null,
-            1: { open: '10:30', close: '21:00', brk: { start: '14:30', end: '17:00' } },
-            2: { open: '10:30', close: '21:00', brk: { start: '14:30', end: '17:00' } },
-            3: { open: '10:30', close: '21:00', brk: { start: '14:30', end: '17:00' } },
-            4: { open: '10:30', close: '21:00', brk: { start: '14:30', end: '17:00' } },
-            5: { open: '10:30', close: '21:00', brk: { start: '14:30', end: '17:00' } },
-            6: { open: '10:30', close: '21:00', brk: { start: '14:30', end: '17:00' } }
+            1: { open: '09:00', close: '18:00', brk: null },
+            2: { open: '09:00', close: '18:00', brk: null },
+            3: { open: '09:00', close: '18:00', brk: null },
+            4: { open: '09:00', close: '18:00', brk: null },
+            5: { open: '09:00', close: '18:00', brk: null },
+            6: { open: '09:00', close: '18:00', brk: null }
         },
         /* How far ahead patients may book, and the minimum notice required. */
         bookingWindowDays: 60,
@@ -94,12 +94,12 @@
        `schedule` overrides clinic hours per weekday; omit it to use CLINIC.hours. */
     var DOCTORS = [
         {
-            id: 'vishwas-patil',
-            name: 'Dr. Vishwas Patil',
-            specialization: 'Dentist',
-            bio: 'BDS, Maharashtra University of Health Sciences. General and restorative dentistry — toothache, cavities, stained teeth and painful teething.',
-            experience: '10 years experience',
-            department: 'General Dentistry',
+            id: 'kaustubh-patil',
+            name: 'Dr. Kaustubh Patil',
+            specialization: 'Periodontist & Implantologist',
+            bio: 'MDS (Periodontics), BDS. Dental implants, root canal treatment, gum care and full-mouth rehabilitation.',
+            experience: '16+ years experience',
+            department: 'Periodontics, Implants & General Dentistry',
             image: 'assets/img/gen_team-image-5.jpg',
             services: ['general-consultation', 'preventive-dentistry', 'cosmetic-dentistry', 'restorative-treatments', 'follow-up']
         },
