@@ -1,28 +1,28 @@
 /* ==========================================================================
-   The Dental Solutions — Booking data layer (Connected to LumoraDB)
+   Dr. Anupam's Town Dental — Booking data layer (Connected to LumoraDB)
    ========================================================================== */
 (function (global) {
     'use strict';
 
     /* Fallback default clinic info */
     var DEFAULT_CLINIC = {
-        name: 'The Dental Solutions',
-        tagline: 'Modern, gentle dentistry in Shivajinagar, Pune.',
-        address: '3rd Floor, Grand Helios Building, 303, Off FC Rd, above Axis Bank, opp. Hotel Ambassador, Model Colony, Shivajinagar, Pune 411016',
-        shortAddress: 'Model Colony, Shivajinagar, Pune',
-        phone: '+91 97654 07679',
-        phoneE164: '919765407679',
-        email: 'hello@drkaustubhpatilpune.com',
-        whatsapp: '+91 97654 07679',
-        mapsUrl: 'https://maps.google.com/?cid=4187806642178671438',
+        name: "Dr. Anupam's Town Dental",
+        tagline: 'An exclusive dental implant, braces & root canal treatment clinic in Bareilly.',
+        address: '127/89, Macnair Road, near Sood Dharam Kanta, opp. Major Nursing Home, Prem Nagar, Bareilly, Uttar Pradesh 243005',
+        shortAddress: 'Prem Nagar, Bareilly',
+        phone: '+91 81266 43459',
+        phoneE164: '918126643459',
+        email: 'dranupamstowndental111@gmail.com',
+        whatsapp: '+91 81266 43459',
+        mapsUrl: 'https://maps.google.com/?cid=3426945284530272874',
         hours: {
-            0: null,
-            1: { open: '09:00', close: '18:00', brk: null },
-            2: { open: '09:00', close: '18:00', brk: null },
-            3: { open: '09:00', close: '18:00', brk: null },
-            4: { open: '09:00', close: '18:00', brk: null },
-            5: { open: '09:00', close: '18:00', brk: null },
-            6: { open: '09:00', close: '18:00', brk: null }
+            0: { open: '10:00', close: '18:00', brk: null },
+            1: { open: '10:00', close: '20:00', brk: null },
+            2: { open: '10:00', close: '20:00', brk: null },
+            3: { open: '10:00', close: '20:00', brk: null },
+            4: null,
+            5: { open: '10:00', close: '20:00', brk: null },
+            6: { open: '10:00', close: '20:00', brk: null }
         },
         bookingWindowDays: 60,
         minNoticeMinutes: 90,

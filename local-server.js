@@ -103,7 +103,7 @@ function serveFile(filePath, res) {
 if (require.main === module) {
     server.listen(PORT, '127.0.0.1', () => {
         console.log(`\n==================================================`);
-        console.log(`  The Dental Solutions Local Server Running!`);
+        console.log(`  Dr. Anupam's Town Dental Local Server Running!`);
         console.log(`  🌐 Website:     http://127.0.0.1:${PORT}/index.html`);
         console.log(`  ⚡ Admin Panel: http://127.0.0.1:${PORT}/admin/index.html`);
         console.log(`  📖 Blog:        http://127.0.0.1:${PORT}/blog.html`);

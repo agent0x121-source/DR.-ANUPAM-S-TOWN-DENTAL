@@ -1,5 +1,5 @@
 /* ==========================================================================
-   The Dental Solutions — Booking data layer
+   Dr. Anupam's Town Dental — Booking data layer
    --------------------------------------------------------------------------
    All clinic, doctor, service and availability data lives here, fully
    separated from the UI. To add a doctor, a service, a new duration or a
@@ -15,24 +15,24 @@
 
     /* ---------------------------------------------------------------- clinic */
     var CLINIC = {
-        name: 'The Dental Solutions',
-        tagline: 'Modern, gentle dentistry in Shivajinagar, Pune.',
-        address: '3rd Floor, Grand Helios Building, 303, Off FC Rd, above Axis Bank, opp. Hotel Ambassador, Model Colony, Shivajinagar, Pune 411016',
-        shortAddress: 'Model Colony, Shivajinagar, Pune',
-        phone: '+91 97654 07679',
-        phoneE164: '919765407679',
-        email: 'hello@drkaustubhpatilpune.com',
-        mapsUrl: 'https://maps.google.com/?cid=4187806642178671438',
+        name: "Dr. Anupam's Town Dental",
+        tagline: 'An exclusive dental implant, braces & root canal treatment clinic in Bareilly.',
+        address: '127/89, Macnair Road, near Sood Dharam Kanta, opp. Major Nursing Home, Prem Nagar, Bareilly, Uttar Pradesh 243005',
+        shortAddress: 'Prem Nagar, Bareilly',
+        phone: '+91 81266 43459',
+        phoneE164: '918126643459',
+        email: 'dranupamstowndental111@gmail.com',
+        mapsUrl: 'https://maps.google.com/?cid=3426945284530272874',
         /* Clinic opening hours, 24h. 0 = Sunday … 6 = Saturday.
            null means closed that day. */
         hours: {
-            0: null,
-            1: { open: '09:00', close: '18:00', brk: null },
-            2: { open: '09:00', close: '18:00', brk: null },
-            3: { open: '09:00', close: '18:00', brk: null },
-            4: { open: '09:00', close: '18:00', brk: null },
-            5: { open: '09:00', close: '18:00', brk: null },
-            6: { open: '09:00', close: '18:00', brk: null }
+            0: { open: '10:00', close: '18:00', brk: null },
+            1: { open: '10:00', close: '20:00', brk: null },
+            2: { open: '10:00', close: '20:00', brk: null },
+            3: { open: '10:00', close: '20:00', brk: null },
+            4: null,
+            5: { open: '10:00', close: '20:00', brk: null },
+            6: { open: '10:00', close: '20:00', brk: null }
         },
         /* How far ahead patients may book, and the minimum notice required. */
         bookingWindowDays: 60,
@@ -47,37 +47,51 @@
     var SERVICES = [
         {
             id: 'general-consultation',
-            name: 'General Consultation',
-            description: 'A full check-up and discussion of any concerns.',
+            name: 'General Consultation & Diagnosis',
+            description: 'An unhurried examination, diagnosis and treatment plan.',
             duration: 30,
             modes: ['in-person']
         },
         {
-            id: 'preventive-dentistry',
-            name: 'Preventive Dentistry',
-            description: 'Cleaning, scaling, fluoride and routine care.',
-            duration: 30,
+            id: 'dental-implants',
+            name: 'Dental Implants',
+            description: 'Titanium implants to replace missing teeth with fixed teeth.',
+            duration: 60,
             modes: ['in-person']
         },
         {
-            id: 'cosmetic-dentistry',
-            name: 'Cosmetic Dentistry',
-            description: 'Whitening, veneers and smile design consultation.',
-            duration: 45,
-            modes: ['in-person']
-        },
-        {
-            id: 'restorative-treatments',
-            name: 'Restorative Treatments',
-            description: 'Fillings, crowns, bridges and root canal treatment.',
+            id: 'root-canal',
+            name: 'Root Canal Treatment',
+            description: 'Rotary root canal treatment, precise and almost painless.',
             duration: 60,
             modes: ['in-person']
         },
         {
             id: 'orthodontics',
-            name: 'Orthodontics',
-            description: 'Braces and aligner assessment and fitting.',
+            name: 'Orthodontics — Braces & Aligners',
+            description: 'Metal braces, ceramic braces and clear aligner assessment and fitting.',
             duration: 45,
+            modes: ['in-person']
+        },
+        {
+            id: 'cosmetic-dentistry',
+            name: 'Cosmetic Dentistry',
+            description: 'Smile design with mock preparation and aesthetic try-in.',
+            duration: 45,
+            modes: ['in-person']
+        },
+        {
+            id: 'prosthodontics',
+            name: 'Crowns, Bridges & Dentures',
+            description: 'Fixed prosthodontics, complete dentures and cast partial dentures.',
+            duration: 60,
+            modes: ['in-person']
+        },
+        {
+            id: 'preventive-dentistry',
+            name: 'Periodontia & Preventive Care',
+            description: 'Cleaning, polishing, gum care and child dentistry.',
+            duration: 30,
             modes: ['in-person']
         },
         {
@@ -94,44 +108,44 @@
        `schedule` overrides clinic hours per weekday; omit it to use CLINIC.hours. */
     var DOCTORS = [
         {
-            id: 'kaustubh-patil',
-            name: 'Dr. Kaustubh Patil',
-            specialization: 'Periodontist & Implantologist',
-            bio: 'MDS (Periodontics), BDS. Dental implants, root canal treatment, gum care and full-mouth rehabilitation.',
-            experience: '16+ years experience',
-            department: 'Periodontics, Implants & General Dentistry',
+            id: 'anupam-purwar',
+            name: 'Dr. Anupam Purwar',
+            specialization: 'Prosthodontist & Oral Implantologist',
+            bio: 'MDS (Prosthodontics, Crown & Bridge and Maxillofacial Prosthetics), BDS. Founder of the clinic, with dental implants as his main area of contribution.',
+            experience: 'Practising since 2005',
+            department: 'Implantology, Prosthodontics & Maxillofacial Prosthetics',
             image: 'assets/img/gen_team-image-5.jpg',
-            services: ['general-consultation', 'preventive-dentistry', 'cosmetic-dentistry', 'restorative-treatments', 'follow-up']
+            services: ['general-consultation', 'dental-implants', 'prosthodontics', 'cosmetic-dentistry', 'follow-up']
         },
         {
-            id: 'sidra',
-            name: 'Associate Dentist',
-            specialization: 'Dental Surgeon',
-            bio: 'Gentle preventive and cosmetic care, with a focus on first-time and anxious patients.',
-            experience: '6 years experience',
-            department: 'Preventive & Cosmetic Dentistry',
+            id: 'shally-khanna',
+            name: 'Dr. Shally Khanna',
+            specialization: 'Oral Pathologist & Endodontist',
+            bio: 'MDS (Oral & Maxillofacial Pathology), BDS, with certificate courses in Advanced Endodontics and Laser Dentistry. Her clinical focus is advanced endodontics.',
+            experience: 'Practising since 2008',
+            department: 'Endodontics & Oral Pathology',
             image: 'assets/img/gen_team-image-6.jpg',
-            services: ['general-consultation', 'preventive-dentistry', 'cosmetic-dentistry', 'orthodontics', 'follow-up']
+            services: ['general-consultation', 'root-canal', 'preventive-dentistry', 'follow-up']
         },
         {
-            id: 'taniya',
-            name: 'Consultant Dentist',
-            specialization: 'Dentist',
-            bio: 'Routine check-ups, cleanings and fillings, with a calm, unhurried chairside manner.',
-            experience: '5 years experience',
-            department: 'General Dentistry',
+            id: 'consultant-orthodontist',
+            name: 'Consultant Orthodontist',
+            specialization: 'Orthodontics — Braces & Aligners',
+            bio: 'Correction of irregular and mal-positioned teeth with metal braces, ceramic braces and clear aligners.',
+            experience: 'Visiting specialist',
+            department: 'Orthodontics',
             image: 'assets/img/gen_team-image-1.jpg',
-            services: ['general-consultation', 'preventive-dentistry', 'restorative-treatments', 'follow-up']
+            services: ['general-consultation', 'orthodontics', 'follow-up']
         },
         {
-            id: 'parul',
-            name: 'Dental Hygienist',
-            specialization: 'Dental Hygienist',
-            bio: 'Scaling, polishing and gum care, plus advice on keeping teeth healthy between visits.',
-            experience: '4 years experience',
-            department: 'Preventive Dentistry',
+            id: 'consultant-oral-surgeon',
+            name: 'Consultant Oral Surgeon',
+            specialization: 'Oral & Maxillofacial Surgery',
+            bio: 'Extractions, repair of fractured jaws and surgical excision of oral cysts and tumours.',
+            experience: 'Visiting specialist',
+            department: 'Oral Surgery',
             image: 'assets/img/gen_team-image-3.jpg',
-            services: ['general-consultation', 'preventive-dentistry', 'follow-up']
+            services: ['general-consultation', 'follow-up']
         }
     ];
 

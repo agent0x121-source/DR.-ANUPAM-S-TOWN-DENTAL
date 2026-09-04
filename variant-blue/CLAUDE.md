@@ -1,4 +1,4 @@
-# The Dental Solutions — project notes
+# Dr. Anupam's Town Dental — project notes
 
 A premium dental clinic website. **Origin:** a de-branded, rebuilt version of a Webflow HTML
 template (originally "Smilifye" by author "Flowfye"). Every Webflow/template trace has been
@@ -17,12 +17,12 @@ an original build.
 - `.bak/` — original Webflow exports, kept for reference.
 
 ## Brand
-- Name: **The Dental Solutions**. Accent teal `#24a3b1`; deep teal `#011f23` / `#022f34`. Font: Sora.
-- Email: `hello@drkaustubhpatilpune.com` (placeholder). Phone in footer is template placeholder.
+- Name: **Dr. Anupam's Town Dental**. Accent teal `#24a3b1`; deep teal `#011f23` / `#022f34`. Font: Sora.
+- Email: `dranupamstowndental111@gmail.com`. Phone: +91 81266 43459. Both are the clinic's real details.
 
 ## Wiring
-- Nav/footer links are local `.html` files. All "Book/Get Appointment" CTAs (×6) →
-  `https://calendly.com/shreyasrajsony11` (Shreyas's connected Calendly).
+- Nav/footer links are local `.html` files. All "Book/Get Appointment" CTAs point at the
+  in-repo booking flow (`booking.html`); the old external Calendly link is gone.
 
 ## Interactions
 - Webflow IX2 (jQuery-dependent) + GSAP/ScrollTrigger/SplitText + inline GSAP (animated counters

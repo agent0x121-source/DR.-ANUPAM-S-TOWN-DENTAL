@@ -1,5 +1,5 @@
 /* ==========================================================================
-   The Dental Solutions — Website Synchronization & Dynamic Content Hydrator
+   Dr. Anupam's Town Dental — Website Synchronization & Dynamic Content Hydrator
    --------------------------------------------------------------------------
    Connects the public website presentation layer to the central LumoraDB
    while preserving 100% of the existing design, animations and layouts.
@@ -49,8 +49,8 @@
     function syncContactInfo(clinic) {
         if (!clinic) return;
 
-        var cleanPhoneE164 = (clinic.phoneE164 || clinic.phone || '919765407679').replace(/\D/g, '');
-        var cleanWa = (clinic.whatsapp || clinic.phoneE164 || clinic.phone || '919765407679').replace(/\D/g, '');
+        var cleanPhoneE164 = (clinic.phoneE164 || clinic.phone || '918126643459').replace(/\D/g, '');
+        var cleanWa = (clinic.whatsapp || clinic.phoneE164 || clinic.phone || '918126643459').replace(/\D/g, '');
 
         // 1. Phone numbers across links and texts
         var phoneLinks = document.querySelectorAll('a[href^="tel:"], .bk-top__call, a.our-info_item-link[href^="tel:"]');
@@ -60,12 +60,12 @@
             var childText = a.querySelector('span, div, .our-info_item-para');
             if (childText) {
                 if (childText.textContent.indexOf('Call :') !== -1 || childText.textContent.indexOf('Call:') !== -1) {
-                    childText.textContent = 'Call : ' + (clinic.phone || '+91 97654 07679');
+                    childText.textContent = 'Call : ' + (clinic.phone || '+91 81266 43459');
                 } else if (/\+?\d[\d\s-]{6,}/.test(childText.textContent)) {
-                    childText.textContent = clinic.phone || '+91 97654 07679';
+                    childText.textContent = clinic.phone || '+91 81266 43459';
                 }
             } else if (/\+?\d[\d\s-]{6,}/.test(a.textContent)) {
-                a.textContent = clinic.phone || '+91 97654 07679';
+                a.textContent = clinic.phone || '+91 81266 43459';
             }
         });
 
@@ -180,7 +180,16 @@
         // 2. Services Page (.service-item_wrap)
         var serviceList = document.querySelector('.service_list, .collection-list.w-dyn-items');
         if (serviceList) {
-            var items = serviceList.querySelectorAll('.service-item_wrap, .w-dyn-item');
+            /* Each card matches both selectors (an outer .w-dyn-item wrapping an inner
+               .service-item_wrap), so keep only the outermost match per card —
+               otherwise every card is written twice and ends up showing the next
+               service in the list. */
+            var matched = serviceList.querySelectorAll('.service-item_wrap, .w-dyn-item');
+            var items = Array.prototype.filter.call(matched, function (el) {
+                return !Array.prototype.some.call(matched, function (other) {
+                    return other !== el && other.contains(el);
+                });
+            });
             if (items.length > 0) {
                 services.slice(0, items.length).forEach(function (svc, idx) {
                     var item = items[idx];
@@ -353,7 +362,7 @@
                 <div class="lumora-auth-box">
                     <div class="lumora-auth-header">
                         <div class="lumora-auth-badge">Patient Portal</div>
-                        <h2>Welcome to The Dental Solutions</h2>
+                        <h2>Welcome to Dr. Anupam's Town Dental</h2>
                         <p>Sign in to manage your appointments, view dental history, or book a consultation.</p>
                     </div>
 
@@ -525,7 +534,7 @@
                             ${(appt.status === 'Pending' || appt.status === 'Confirmed') ? `
                                 <div class="lumora-appt-actions">
                                     <button class="lumora-btn-sm lumora-btn-cancel" data-ref="${appt.reference}">Cancel Visit</button>
-                                    <a href="https://wa.me/919765407679?text=Hi%20DENTAL%20CLINICa,%20I%20would%20like%20to%20reschedule%20my%20appointment%20(Ref:%20${appt.reference})" target="_blank" class="lumora-btn-sm lumora-btn-resched">Request Reschedule</a>
+                                    <a href="https://wa.me/918126643459?text=Hi%20DENTAL%20CLINICa,%20I%20would%20like%20to%20reschedule%20my%20appointment%20(Ref:%20${appt.reference})" target="_blank" class="lumora-btn-sm lumora-btn-resched">Request Reschedule</a>
                                 </div>
                             ` : ''}
                         </div>

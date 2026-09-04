@@ -1,5 +1,5 @@
 /* ==========================================================================
-   The Dental Solutions — Admin Ecosystem Core Application Controller
+   Dr. Anupam's Town Dental — Admin Ecosystem Core Application Controller
    --------------------------------------------------------------------------
    Modular SPA Architecture powering Admin, Doctor, and Staff Panels,
    with 25 interconnected systems, real-time sync, and role-based access.
@@ -1880,7 +1880,7 @@
                     reference: 'DC-SAMPLE',
                     patientName: 'Sameer Kulkarni',
                     patientPhone: '+91 98111 22334',
-                    doctorId: 'kaustubh-patil',
+                    doctorId: 'anupam-purwar',
                     serviceId: 'preventive-dentistry',
                     date: '2026-09-15',
                     time: '11:30 AM'
@@ -1899,11 +1899,11 @@
                 var svcName = svc ? svc.name : (appt.serviceName || 'Dental Consultation');
                 var apptDate = appt.date || '';
                 var apptTime = appt.time || '';
-                var clinicName = c.name || 'The Dental Solutions';
-                var clinicAddr = c.address || '3rd Floor, Grand Helios Building, 303, Off FC Rd, above Axis Bank, opp. Hotel Ambassador, Model Colony, Shivajinagar, Pune 411016';
-                var clinicPh = c.phone || '+91 97654 07679';
-                var emergPh = c.phone || '+91 97654 07679';
-                var mapsLink = c.mapsUrl || 'https://maps.google.com/?cid=4187806642178671438';
+                var clinicName = c.name || "Dr. Anupam's Town Dental";
+                var clinicAddr = c.address || '127/89, Macnair Road, near Sood Dharam Kanta, opp. Major Nursing Home, Prem Nagar, Bareilly, Uttar Pradesh 243005';
+                var clinicPh = c.phone || '+91 81266 43459';
+                var emergPh = c.phone || '+91 81266 43459';
+                var mapsLink = c.mapsUrl || 'https://maps.google.com/?cid=3426945284530272874';
 
                 // Replace variables (both camelCase and snake_case)
                 var compiled = rawTemplate
@@ -2000,7 +2000,7 @@
 
             // Open in WhatsApp Button
             document.getElementById('btn-open-preview-wa').addEventListener('click', function () {
-                var phone = activePatientPhone || '919765407679';
+                var phone = activePatientPhone || '918126643459';
                 var url = 'https://wa.me/' + phone + '?text=' + encodeURIComponent(lastCompiledRawText);
                 window.open(url, '_blank');
             });
@@ -2250,7 +2250,7 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label>Clinic Display Name</label>
-                                <input type="text" id="set-clinic-name" value="${settings.clinicName || 'The Dental Solutions'}">
+                                <input type="text" id="set-clinic-name" value="${settings.clinicName || "Dr. Anupam's Town Dental"}">
                             </div>
                             <div class="form-group">
                                 <label>Tagline</label>
@@ -2689,8 +2689,8 @@
                 <div style="background:#fff; color:#111; padding:24px; border-radius:var(--radius-md); font-family:sans-serif;" id="printable-receipt">
                     <div style="display:flex; justify-content:space-between; border-bottom:2px solid #24a3b1; padding-bottom:12px; margin-bottom:16px;">
                         <div>
-                            <h2 style="margin:0; color:#011f23;">The Dental Solutions</h2>
-                            <p style="margin:2px 0 0 0; font-size:11px; color:#555;">3rd Floor, Grand Helios Building, Off FC Rd, Model Colony, Pune • +91 97654 07679</p>
+                            <h2 style="margin:0; color:#011f23;">Dr. Anupam's Town Dental</h2>
+                            <p style="margin:2px 0 0 0; font-size:11px; color:#555;">127/89, Macnair Road, near Sood Dharam Kanta, Prem Nagar, Bareilly • +91 81266 43459</p>
                         </div>
                         <div style="text-align:right;">
                             <h3 style="margin:0; color:#24a3b1;">RECEIPT</h3>
@@ -2724,7 +2724,7 @@
                         </tbody>
                     </table>
 
-                    <div style="text-align:center; font-size:11px; color:#888;">Thank you for trusting The Dental Solutions with your smile.</div>
+                    <div style="text-align:center; font-size:11px; color:#888;">Thank you for trusting Dr. Anupam's Town Dental with your smile.</div>
                 </div>
                 <div style="margin-top:16px; text-align:right;">
                     <button type="button" class="btn btn-primary" onclick="window.print()">Print Receipt</button>
@@ -3003,7 +3003,7 @@
                         </div>
                         <div class="form-group">
                             <label>Author</label>
-                            <input type="text" id="be-author" value="${blog.author || 'Dr. Kaustubh Patil'}">
+                            <input type="text" id="be-author" value="${blog.author || 'Dr. Anupam Purwar'}">
                         </div>
                     </div>
 
@@ -3288,7 +3288,7 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label>Phone / WhatsApp Number</label>
-                            <input type="text" id="prof-phone" value="${user.phone || '+91 97654 07679'}" />
+                            <input type="text" id="prof-phone" value="${user.phone || '+91 81266 43459'}" />
                         </div>
                         <div class="form-group">
                             <label>Avatar Photo URL / Path</label>
