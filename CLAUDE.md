@@ -36,7 +36,7 @@ token, image and animation is inherited unchanged from that base — **only cont
   surgeons but names neither — **do not invent names**.
 
 ## Structure
-- `index.html` — home; `about.html`, `service.html`, `blog.html`, `booking.html`
+- `index.html` — home; `about.html`, `service.html`, `blog.html`, `booking.html`, `contact.html`
 - `privacy/terms/cookies/licenses/404.html` — hand-built legal pages
 - `admin/` — clinic management panel (dashboard, appointments, patients, doctors, revenue, settings)
 - `assets/css/lumora.css` — the design system (filename kept; do not rename, all `url()`s depend on it)
@@ -79,6 +79,24 @@ On `index.html` and `service.html` the four service cards get their **title and 
 injected from the database by `website-sync.js`**, but their **tag chips are static HTML**.
 The injected order is implants → root canal → cosmetic → orthodontics, so the static tags
 must be kept in that same order or the chips will describe the wrong card.
+
+## Contact page
+`contact.html` is hand-built (not from the template export) and carries its own scoped
+`<style>` block — it adds **no rules to `lumora.css`**. Its nav, footer and end-of-body
+scripts are copied verbatim from `about.html`, so if the nav or footer changes elsewhere,
+mirror it here. The "Contact Us" item in the Pages dropdown and the footer Navigation
+column point at it on every page; it used to open `wa.me` directly.
+
+The right-hand column of its map section shows **opening hours**, not travel distances —
+the Google profile publishes no transit or distance data for this clinic and none was invented.
+
+`variant-blue/contact.html` is the same page rebuilt from variant-blue's own nav/footer and
+recoloured teal -> blue (`#24a3b1`->`#2f80ff`, `#011f23`->`#06182e`, panel `#ddebec`->`#dfe9f7`).
+
+## Counter caveat
+The GSAP counter on `.about-hero_info-item_title` parses the number out of the text and
+re-prints it with `toLocaleString`, so a **four-digit year renders with a thousands separator**
+("2017" became "2,017"). Keep these stats to plain counts like `9+` or `397+`.
 
 ## Local storage note
 Seed data is cached in `localStorage` under `atd_db_v1`. After changing seed data, bump that key
